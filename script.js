@@ -10,13 +10,30 @@ var easyButton = document.querySelector("#easyButton");
 var hardButton = document.querySelector("#hardButton");
 
 easyButton.addEventListener("click", function () {
-	if (!easyButton.classList.contains("selected")){
-	easyButton.classList.toggle("selected");
+	
+	easyButton.classList.add("selected");
+	hardButton.classList.remove("selected");
+	colors = createColors(3);
+	pickedColor = pickRandomColor(colors);
+	colorDisplay.textContent = pickedColor;
+	
+	for (var i=0; i < squares.length ; i++){
+		if (i < 3) {
+			squares[i].style.background = colors[i].rgb;
+		} else  {
+			squares[i].style.display="none";
+		}
 	}
+
 });
 
 hardButton.addEventListener("click", function () {
-	alert("hard button clicked");	
+	
+	hardButton.classList.add("selected");
+	easyButton.classList.remove("selected");
+	colors = createColors(6);
+	pickedColor = pickRandomColor(colors);
+	colorDisplay.textContent = pickedColor;
 	
 });
 
