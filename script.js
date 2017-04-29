@@ -8,17 +8,20 @@ var colorDisplay = document.querySelector("#colorDisplay");
 
 var easyButton = document.querySelector("#easyButton");
 var hardButton = document.querySelector("#hardButton");
+var numSquares = 6;
 
 easyButton.addEventListener("click", function () {
-	
+	numSquares = 3;
 	easyButton.classList.add("selected");
 	hardButton.classList.remove("selected");
-	colors = createColors(3);
+	colors = createColors(numSquares);
 	pickedColor = pickRandomColor(colors);
-	colorDisplay.textContent = pickedColor;
+	colorDisplay.textContent = 
+	document.querySelector("H1").style.background = pickedColor;
+	document.querySelector("H1").style.background =  "#232323"
 	
 	for (var i=0; i < squares.length ; i++){
-		if (i < 3) {
+		if (colors[i]) {
 			squares[i].style.background = colors[i].rgb;
 		} else  {
 			squares[i].style.display="none";
@@ -28,28 +31,38 @@ easyButton.addEventListener("click", function () {
 });
 
 hardButton.addEventListener("click", function () {
-	
+	numSquares=6;
 	hardButton.classList.add("selected");
 	easyButton.classList.remove("selected");
 	colors = createColors(6);
 	pickedColor = pickRandomColor(colors);
 	colorDisplay.textContent = pickedColor;
+document.querySelector("H1").style.background =  "#232323"	
+	
+	for (var i =0; i < colors.length; i++){
+		
+		squares[i].style.background = colors[i].rgb;
+		squares[i].style.display="block";
+	}
 	
 });
 
 
 var resetButton = document.querySelector("#resetButton");
 resetButton.addEventListener("click", function() {
-	colors = createColors(6);
+	
+	colors = createColors(numSquares);
+	
 	pickedColor = pickRandomColor(colors);
 	colorDisplay.textContent = pickedColor;
 	message.textContent = "";
-for (var i = 0; i < squares.length; i++) {
+	document.querySelector("H1").style.background = pickedColor;
+for (var i = 0; i < numSquares; i++) {
 	squares[i].style.background = colors[i].rgb;
 }
 
 
-document.querySelector("H1").style.background =  "#232323"; ;
+document.querySelector("H1").style.background =  "#232323";
 
 });
 colorDisplay.textContent = pickedColor;
