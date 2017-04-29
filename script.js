@@ -36,7 +36,6 @@ function pickRandomColor(colors)  {
 
 var colorDisplay=document.querySelector("#colorDisplay");
 var message = document.getElementById("message");
-
 colorDisplay.textContent=pickedColor;
 
 var squares = document.querySelectorAll(".square");
