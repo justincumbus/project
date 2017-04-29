@@ -10,11 +10,9 @@ var b =0;
 
 while (count < 6) {
 
- r = ("(".concat (Math.floor(Math.random() * (255- 0)) + 0)).concat(", ");
- g = (Math.floor(Math.random() * (255- 0)) + 0) + ", ";
- b = (Math.floor(Math.random() * (255- 0)) + 0) + ")";
-
-
+ r = ("(".concat (Math.floor(Math.random() * (256- 0)) + 0)).concat(", ");
+ g = (Math.floor(Math.random() * (256- 0)) + 0) + ", ";
+ b = (Math.floor(Math.random() * (256- 0)) + 0) + ")";
 
 colorArray.push({text:"rgb",red:r,green:g,blue:b, rgb:"rgb".concat(r).concat(g).concat(b)});
 
@@ -51,6 +49,7 @@ for (var i =0; i < squares.length; i++ )  {
 	squares[i].addEventListener("click",function() { 
 			if (this.style.background === pickedColor){
 				message.textContent="Correct!";
+				document.querySelector("H1").style.background=pickedColor;
 				for (var i =0; i < squares.length; i++ ) {
 					squares[i].style.background=pickedColor; 
 				}
