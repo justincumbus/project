@@ -10,59 +10,60 @@ var easyButton = document.querySelector("#easyButton");
 var hardButton = document.querySelector("#hardButton");
 var numSquares = 6;
 
-easyButton.addEventListener("click", function () {
+easyButton.addEventListener("click", function() {
 	numSquares = 3;
 	easyButton.classList.add("selected");
 	hardButton.classList.remove("selected");
 	colors = createColors(numSquares);
 	pickedColor = pickRandomColor(colors);
-	colorDisplay.textContent = 
-	document.querySelector("H1").style.background = pickedColor;
-	document.querySelector("H1").style.background =  "#232323"
-	
-	for (var i=0; i < squares.length ; i++){
+	colorDisplay.textContent =
+		document.querySelector("H1").style.background = pickedColor;
+	document.querySelector("H1").style.background = "steelblue"
+
+	for (var i = 0; i < squares.length; i++) {
 		if (colors[i]) {
 			squares[i].style.background = colors[i].rgb;
-		} else  {
-			squares[i].style.display="none";
+		}
+		else {
+			squares[i].style.display = "none";
 		}
 	}
 
 });
 
-hardButton.addEventListener("click", function () {
-	numSquares=6;
+hardButton.addEventListener("click", function() {
+	numSquares = 6;
 	hardButton.classList.add("selected");
 	easyButton.classList.remove("selected");
 	colors = createColors(6);
 	pickedColor = pickRandomColor(colors);
 	colorDisplay.textContent = pickedColor;
-document.querySelector("H1").style.background =  "#232323"	
-	
-	for (var i =0; i < colors.length; i++){
-		
+	document.querySelector("H1").style.background = "steelblue"
+
+	for (var i = 0; i < colors.length; i++) {
+
 		squares[i].style.background = colors[i].rgb;
-		squares[i].style.display="block";
+		squares[i].style.display = "block";
 	}
-	
+
 });
 
 
 var resetButton = document.querySelector("#resetButton");
 resetButton.addEventListener("click", function() {
-	
+
 	colors = createColors(numSquares);
-	
+
 	pickedColor = pickRandomColor(colors);
 	colorDisplay.textContent = pickedColor;
 	message.textContent = "";
 	document.querySelector("H1").style.background = pickedColor;
-for (var i = 0; i < numSquares; i++) {
-	squares[i].style.background = colors[i].rgb;
-}
+	for (var i = 0; i < numSquares; i++) {
+		squares[i].style.background = colors[i].rgb;
+	}
 
 
-document.querySelector("H1").style.background =  "#232323";
+	document.querySelector("H1").style.background = "steelblue";
 
 });
 colorDisplay.textContent = pickedColor;
@@ -74,7 +75,7 @@ function createColors(num) {
 	var g = 0;
 	var b = 0;
 
-		while (count < num) {
+	while (count < num) {
 
 		r = ("(".concat(Math.floor(Math.random() * (256 - 0)) + 0)).concat(", ");
 		g = (Math.floor(Math.random() * (256 - 0)) + 0) + ", ";
@@ -109,7 +110,7 @@ function pickRandomColor(colors) {
 
 
 
-console.log(squares);
+
 for (var i = 0; i < squares.length; i++) {
 	squares[i].style.background = colors[i].rgb;
 
