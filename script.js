@@ -1,31 +1,81 @@
 var colors = createColors(6);
-var pickedColor = pickRandomColor(colors);
+var pickedColor;
 
 
 var message = document.getElementById("message");
 var squares = document.querySelectorAll(".square");
 var colorDisplay = document.querySelector("#colorDisplay");
 var resetButton = document.querySelector("#resetButton");
-
-var numSquares = 6;
 var modeButtons = document.querySelectorAll(".mode");
 
-for (var i = 0; i < modeButtons.length; i++)  {
-	modeButtons[i].addEventListener("click", function(){
-		modeButtons[0].classList.remove("selected");
-		modeButtons[1].classList.remove("selected");
-		this.classList.add("selected");
+var numSquares = 6;
 
-	if (this.textContent==="Easy"){
-		numSquares=3;
 
-	} else {
-		numSquares=6;
+init();
+
+function setUpModeButtons() {
+	for (var i = 0; i < modeButtons.length; i++) {
+		modeButtons[i].addEventListener("click", function() {
+			modeButtons[0].classList.remove("selected");
+			modeButtons[1].classList.remove("selected");
+			this.classList.add("selected");
+
+			if (this.textContent === "Easy") {
+				numSquares = 3;
+
+			}
+			else {
+				numSquares = 6;
+			}
+			reset();
+
+		});
+		reset();
 	}
+
+}
+
+function setupSquares() {
+	for (var i = 0; i < squares.length; i++) {
+
+
+
+		squares[i].addEventListener("click", function() {
+			if (this.style.background === pickedColor) {
+				message.textContent = "Correct!";
+				resetButton.textContent = "Play Again?";
+				document.querySelector("H1").style.background = pickedColor;
+				for (var i = 0; i < squares.length; i++) {
+					squares[i].style.background = pickedColor;
+				}
+
+			}
+			else {
+				message.textContent = "Incorrect!";
+				this.style.background = "#232323";
+			}
+
+
+		});
+
+
+	}
+
+
+}
+
+function init() {
+	setUpModeButtons();
+	setupSquares();
 	reset();
 
-});
+
+
 }
+
+
+
+
 
 function reset() {
 	colors = createColors(numSquares);
@@ -33,16 +83,17 @@ function reset() {
 	pickedColor = pickRandomColor(colors);
 	colorDisplay.textContent = pickedColor;
 	message.textContent = "";
-	resetButton.textContent="New Colors";
-	document.querySelector("H1").style.background = pickedColor;
+	resetButton.textContent = "New Colors";
+	document.querySelector("H1").style.background = "steelblue";
 	for (var i = 0; i < squares.length; i++) {
-		if (colors[i]){
-		squares[i].style.background = colors[i].rgb;
-		squares[i].style.display = "block";
-		} else {
+		if (colors[i]) {
+			squares[i].style.background = colors[i].rgb;
+			squares[i].style.display = "block";
+		}
+		else {
 			squares[i].style.display = "none";
 		}
-}
+	}
 }
 
 // easyButton.addEventListener("click", function() {
@@ -96,7 +147,7 @@ resetButton.addEventListener("click", function() {
 	pickedColor = pickRandomColor(colors);
 	colorDisplay.textContent = pickedColor;
 	message.textContent = "";
-	resetButton.textContent="New Colors";
+	resetButton.textContent = "New Colors";
 	document.querySelector("H1").style.background = pickedColor;
 	for (var i = 0; i < numSquares; i++) {
 		squares[i].style.background = colors[i].rgb;
@@ -151,33 +202,32 @@ function pickRandomColor(colors) {
 
 
 
-for (i = 0; i < squares.length; i++) {
-	squares[i].style.background = colors[i].rgb;
+// for ( var i = 0; i < squares.length; i++) {
 
 
 
-	squares[i].addEventListener("click", function() {
-		if (this.style.background === pickedColor) {
-			message.textContent = "Correct!";
-			resetButton.textContent="Play Again?";
-			document.querySelector("H1").style.background = pickedColor;
-			for (var i = 0; i < squares.length; i++) {
-				squares[i].style.background = pickedColor;
-			}
+// 	squares[i].addEventListener("click", function() {
+// 		if (this.style.background === pickedColor) {
+// 			message.textContent = "Correct!";
+// 			resetButton.textContent = "Play Again?";
+// 			document.querySelector("H1").style.background = pickedColor;
+// 			for (var i = 0; i < squares.length; i++) {
+// 				squares[i].style.background = pickedColor;
+// 			}
 
-		}
-		else {
-			message.textContent = "Incorrect!";
-			this.style.background = "#232323";
-		}
-
-
-	});
+// 		}
+// 		else {
+// 			message.textContent = "Incorrect!";
+// 			this.style.background = "#232323";
+// 		}
 
 
-}
+// 	});
+
+
+// }
 
 function getRandomNumberBetweenOneAnd255() {
- return Math.floor(Math.random() * (256 - 0)) + 0
-	
-	 }
+	return Math.floor(Math.random() * (256 - 0)) + 0;
+
+}
