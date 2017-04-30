@@ -180,4 +180,4 @@ for (i = 0; i < squares.length; i++) {
 function getRandomNumberBetweenOneAnd255() {
  return Math.floor(Math.random() * (256 - 0)) + 0
 	
-	 };
+	 }
