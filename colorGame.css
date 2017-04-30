@@ -68,7 +68,7 @@ button {
  font-size:inherit;
  letter-spacing: 1px;
  transition:all 0.3s;
- outline:none;
+
 }
 
 #message {
@@ -80,5 +80,11 @@ button {
 button:hover {
  color:white;
  background-color: steelblue;
+ 
+}
+
+button:focus{
+ outline:none;
+
  
 }
