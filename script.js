@@ -117,9 +117,9 @@ function createColors(num) {
 
 	while (count < num) {
 
-		r = ("(".concat(Math.floor(Math.random() * (256 - 0)) + 0)).concat(", ");
-		g = (Math.floor(Math.random() * (256 - 0)) + 0) + ", ";
-		b = (Math.floor(Math.random() * (256 - 0)) + 0) + ")";
+		r = ("(".concat(getRandomNumberBetweenOneAnd255())).concat(", ");
+		g = getRandomNumberBetweenOneAnd255() + ", ";
+		b = getRandomNumberBetweenOneAnd255() + ")";
 
 		colorArray.push({
 			text: "rgb",
@@ -176,3 +176,8 @@ for (i = 0; i < squares.length; i++) {
 
 
 }
+
+function getRandomNumberBetweenOneAnd255() {
+ return Math.floor(Math.random() * (256 - 0)) + 0
+	
+	 };
