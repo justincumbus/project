@@ -167,7 +167,7 @@ for (var i = 0; i < squares.length; i++) {
 
 		}
 		else {
-			message.textContent = "incorrect. try again";
+			message.textContent = "Incorrect!";
 			this.style.background = "#232323";
 		}
 
