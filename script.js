@@ -13,7 +13,7 @@ init();
 
 function setUpModeButtons() {
 	for (var i = 0; i < modeButtons.length; i++) {
-		modeButtons[i].addEventListener("click", modeButtonListenerAction)
+		modeButtons[i].addEventListener("click", modeButtonListenerAction, false)
 
 	}
 
@@ -21,7 +21,7 @@ function setUpModeButtons() {
 
 function setupSquares() {
 	for (var i = 0; i < squares.length; i++) {
-		squares[i].addEventListener("click", setupSquaresListenerAction )
+		squares[i].addEventListener("click", setupSquaresListenerAction, true )
 
 
 	}
