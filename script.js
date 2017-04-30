@@ -15,16 +15,16 @@ for (var i = 0; i < modeButtons.length; i++)  {
 		modeButtons[0].classList.remove("selected");
 		modeButtons[1].classList.remove("selected");
 		this.classList.add("selected");
-		
+
 	if (this.textContent==="Easy"){
 		numSquares=3;
-			
+
 	} else {
 		numSquares=6;
 	}
 	reset();
-	
-});	
+
+});
 }
 
 function reset() {
@@ -151,7 +151,7 @@ function pickRandomColor(colors) {
 
 
 
-for (var i = 0; i < squares.length; i++) {
+for (i = 0; i < squares.length; i++) {
 	squares[i].style.background = colors[i].rgb;
 
 
@@ -176,4 +176,3 @@ for (var i = 0; i < squares.length; i++) {
 
 
 }
-
