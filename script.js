@@ -13,7 +13,7 @@ init();
 
 function setUpModeButtons() {
 	for (var i = 0; i < modeButtons.length; i++) {
-		modeButtons[i].addEventListener("click", modeButtonLogic)
+		modeButtons[i].addEventListener("click", modeButtonListenerAction)
 
 	}
 
@@ -21,26 +21,7 @@ function setUpModeButtons() {
 
 function setupSquares() {
 	for (var i = 0; i < squares.length; i++) {
-
-
-
-		squares[i].addEventListener("click", function() {
-			if (this.style.background === pickedColor) {
-				message.textContent = "Correct!";
-				resetButton.textContent = "Play Again?";
-				document.querySelector("H1").style.background = pickedColor;
-				for (var i = 0; i < squares.length; i++) {
-					squares[i].style.background = pickedColor;
-				}
-
-			}
-			else {
-				message.textContent = "Incorrect!";
-				this.style.background = "#232323";
-			}
-
-
-		});
+		squares[i].addEventListener("click", setupSquaresListenerAction )
 
 
 	}
@@ -148,7 +129,7 @@ function getRandomNumberBetweenOneAnd255() {
 }
 
 
-function modeButtonLogic () {
+function modeButtonListenerAction () {
 			modeButtons[0].classList.remove("selected");
 			modeButtons[1].classList.remove("selected");
 			this.classList.add("selected");
@@ -163,3 +144,23 @@ function modeButtonLogic () {
 			reset();
 
 		}
+		
+function setupSquaresListenerAction(){
+	
+			if (this.style.background === pickedColor) {
+				message.textContent = "Correct!";
+				resetButton.textContent = "Play Again?";
+				document.querySelector("H1").style.background = pickedColor;
+				for (var i = 0; i < squares.length; i++) {
+					squares[i].style.background = pickedColor;
+				}
+
+			}
+			else {
+				message.textContent = "Incorrect!";
+				this.style.background = "#232323";
+			}
+
+
+		
+}
