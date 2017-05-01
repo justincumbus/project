@@ -1,5 +1,7 @@
 ---
 engines:
+  csslint:
+    enabled: true
   duplication:
     enabled: true
     config:
@@ -10,8 +12,10 @@ engines:
     enabled: true
   fixme:
     enabled: true
-  csslint:
-    enabled: true
+ratings:
+  paths:
+  - "**.js
+  - "**.css
 exclude_paths:
 - config/
 - tests/
