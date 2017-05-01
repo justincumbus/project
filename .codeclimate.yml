@@ -1,32 +1,32 @@
 engines:
   rubocop:
     enabled: true
-    #checks:
-    #	Rubocop/Metrics/ClassLength:
-    #  	enabled: false
-  golint:
-   	enabled: true
-  eslint:
-    enabled: true
-  csslint:
-    enabled: true
   duplication:
     enabled: true
     config:
       languages:
-      - ruby:
-      	  mass_threshold: 30
-      - javascript
-ratings:
+        ruby:
+          mass_threshold: 18
+  brakeman:
+    enabled: true
+ ## We also recommend enabling bundler-audit by uncommenting the two lines below. It is an example of additional functionality offered by our engines not offered by classic.
+ # bundler-audit:
+ #   enabled: true
+ratings: # customize
   paths:
-  - app/**
-  - lib/**
-  - "**.rb"
-  - "**.go"
-exclude_paths:
-- spec/**/*
-- "**/vendor/**/*"
-JavaScript: true
-Ruby: true
-Python: false
-PHP: false
+  - app/**/*
+  - lib/**/*
+exclude_paths: # customize
+- .bundle/
+- app/assets/fonts/
+- app/assets/images/
+- app/assets/javascripts/vendor/
+- app/assets/stylesheets/vendor/
+- bin/rails
+- bin/rake
+- db/
+- doc/
+- files/
+- public/
+- spec/
+- tmp/
