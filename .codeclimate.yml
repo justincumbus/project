@@ -4,8 +4,8 @@ engines:
     enabled: true
     config:
       languages:
-      - javascript
-      mass_threshold: 48
+       javascript:
+      mass_threshold: 50
   eslint:
     enabled: true
   fixme:
