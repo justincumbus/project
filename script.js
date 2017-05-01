@@ -33,7 +33,7 @@ function init() {
 	setUpModeButtons();
 	setupSquares();
 	reset();
-	console.log("testtt");
+	console.log("testttt");
 
 
 
