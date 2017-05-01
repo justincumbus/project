@@ -6,6 +6,8 @@ engines:
       languages:
        javascript:
             mass_threshold: 50
+  csslint:
+        enable:true
   eslint:
     enabled: true
   fixme:
